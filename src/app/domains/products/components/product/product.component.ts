@@ -14,9 +14,11 @@ export class ProductComponent {
   @Input() img_2: string = '';
   @Input() price: number = 0;
   @Input() stars: number = 5;
+  like_svg_color: string = '#1C274C';
   isHover: boolean = false;
+  liked: boolean = false;
   starsArray: number[] = [];
-  
+
   onMouseOver() {
     this.isHover = true;
   }
@@ -24,6 +26,11 @@ export class ProductComponent {
   onMouseOut() {
     this.isHover = false;
   }
+
+  toggleLike() {
+    this.liked = !this.liked;
+    this.like_svg_color = this.liked ? 'white' : '#1C274C';
+  }  
 
   @Output() addToCart = new EventEmitter();
 
